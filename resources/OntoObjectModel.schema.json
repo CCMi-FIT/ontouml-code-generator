@@ -1,0 +1,235 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "title": "OntoObjectModel",
+    "description": "Ontological Object model description.",
+    "properties": {
+        "classes": {
+            "description": "Information about all the classes contained in the model.",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the class."
+                    },
+                    "isInterface": {
+                        "type": "boolean",
+                        "description": "Flag indicating the class is only an interface therefore not having a method or property bodies."
+                    },
+                    "isOverlapping": {
+                        "type": "boolean",
+                        "description": "Flag indicating the class is a result of combination of other subclasses of its parent class."
+                    },
+                    "isAbstract": {
+                        "type": "boolean",
+                        "description": "Flag indicating the class cannot be directly instantiated."
+                    },
+                    "existentiallyDependentOn": {
+                        "type": "string",
+                        "description": "Name of the class this class is existentially dependent on."
+                    },
+                    "attributes": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "description": "All the public attributes of the class.",
+                        "items": {
+                            "anyOf": [
+                                { "$ref": "#/definitions/scalarAttribute" },
+                                { "$ref": "#/definitions/collectionAttribute" }
+                            ]
+                        },
+                        "required": [ "name" ]
+                    },
+                    "methods": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "description": "All the public methods of the class.",
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "description": "Name of the method."
+                            },
+                            "typeInfo": {
+                                "oneOf": [ { "$ref": "#/definitions/typeInfo" } ],
+                                "description": "Return type of the method."
+                            },
+                            "parameters": {
+                                "type": "array",
+                                "uniqueItems": true,
+                                "items": {
+                                    "properties": {
+                                        "name": {
+                                            "type": "string",
+                                            "description": "Name of the parameter."
+                                        },
+                                        "typeInfo": {
+                                            "oneOf": [ { "$ref": "#/definitions/typeInfo" } ]
+                                        }
+                                    }
+                                },
+                                "description": "Parameters of the method."
+                            }
+                        },
+                        "required": [ "name" ]
+                    },
+                    "superClass": {
+                        "type": "string",
+                        "description": "Name of the superclass of the class."
+                    },
+                    "unionClasses": {
+                        "type": "array",
+                        "description": "Names of the atomic classes that this class combines.",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "implementing": {
+                        "type": "array",
+                        "description": "Names of the interfaces this class implements.",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "required": [ "name" ]
+            }
+        },
+        "relations": {
+            "description": "Class-Class relations description.",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the relation."
+                    },
+                    "sourceEnd": {
+                        "oneOf": [ { "$ref": "#/definitions/relationEnd" } ],
+                        "description": "Source end of the relation."
+                    },
+                    "targetEnd": {
+                        "oneOf": [ { "$ref": "#/definitions/relationEnd" } ],
+                        "description": "Target end of the relation."
+                    },
+                    "isShareable": {
+                        "type": "boolean",
+                        "description": "Flag indicating the members of the relation can be shared."
+                    },
+                    "isImmutablePart": {
+                        "type": "boolean",
+                        "description": "Flag indicating the part member of the relation is immutable."
+                    },
+                    "isImmutableWhole": {
+                        "type": "boolean",
+                        "description": "Flag indicating the whole member of the relation is immutable."
+                    },
+                    "isEssential": {
+                        "type": "boolean",
+                        "description": "Flag indicating the relation is essential."
+                    },
+                    "isInseparable": {
+                        "type": "boolean",
+                        "description": "Flag indicating the parts are inseparable."
+                    },
+                    "allowDuplicates": {
+                        "type": "boolean",
+                        "description": "Flag indicating there can be multiple relations of this type between the same instances."
+                    },
+                    "derivedFrom": {
+                        "type": "string",
+                        "description": "Name of the relator this relation is derived from."
+                    }
+                },
+                "required": [ "name", "sourceEnd", "targetEnd" ]
+            }
+        }
+    },
+    "required": [ "classes" ],
+    "definitions": {
+        "typeInfo": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the type."
+                },
+                "isReference": {
+                    "type": "boolean",
+                    "description": "Flag indicating the type is a reference to some of the classes in the model."
+                },
+                "isCollection": {
+                    "type": "boolean",
+                    "description": "Flag indicating the type is a collection."
+                }
+            },
+            "description": "Type information.",
+            "required": [ "name" ]
+        },
+        "relationEnd": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the end field."
+                },
+                "className": {
+                    "type": "string",
+                    "description": "Name of the class this end represents."
+                },
+                "maxItems": {
+                    "type": "number",
+                    "description": "Maximal count of the items in the relation end (-1 for unlimited).",
+                    "minimum": -1
+                },
+                "minItems": {
+                    "type": "number",
+                    "description": "Minimal count of the items in the relation end.",
+                    "minimum": 0
+                }
+            },
+            "required": [ "name", "className" ],
+            "description": "Description of a relation end."
+        },
+        "attribute": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the attribute."
+                },
+                "typeInfo": {
+                    "oneOf": [ { "$ref": "#/definitions/typeInfo" } ]
+                }
+            },
+            "required": [ "name" ],
+            "description": "Attribute description."
+        },
+        "scalarAttribute": {
+            "allOf": [
+                { "$ref": "#/definitions/attribute" }
+            ],
+            "description": "Scalar attribute description."
+        },
+        "collectionAttribute": {
+            "allOf": [
+                { "$ref": "#/definitions/attribute" },
+                {
+                    "properties": {
+                        "minItems": {
+                            "type": "integer",
+                            "description": "Minimal count of the items in the attribute.",
+                            "minimum": 0,
+                            "default": 0
+                        },
+                        "maxItems": {
+                            "type": "integer",
+                            "description": "Maximal count of the items in the attribute (-1 for unlimited).",
+                            "minimum": -1
+                        }
+                    }
+                }
+            ],
+            "description": "Collection attribute description."
+        }
+    }
+}

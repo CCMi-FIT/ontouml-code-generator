@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ASCII"?>
+<RefOntoUML:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:RefOntoUML="http://nemo.inf.ufes.br/ontouml/refontouml" xmi:id="_AnK4wfpiEeWFtsmREll80A" name="Model">
+  <packagedElement xsi:type="RefOntoUML:Kind" xmi:id="_k6EDEPpiEeWFtsmREll80A" name="Professor" visibility="public"/>
+  <packagedElement xsi:type="RefOntoUML:Collective" xmi:id="_nyVQsPpiEeWFtsmREll80A" name="Committee" visibility="public"/>
+  <packagedElement xsi:type="RefOntoUML:memberOf" xmi:id="_qzf7oPpiEeWFtsmREll80A" name="committeeMembers" visibility="public" memberEnd="_qzf7ofpiEeWFtsmREll80A _qzf7pPpiEeWFtsmREll80A" navigableOwnedEnd="_qzf7ofpiEeWFtsmREll80A _qzf7pPpiEeWFtsmREll80A">
+    <ownedEnd xmi:id="_qzf7ofpiEeWFtsmREll80A" name="committee" type="_nyVQsPpiEeWFtsmREll80A" aggregation="shared" association="_qzf7oPpiEeWFtsmREll80A">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_tHuoEfpiEeWFtsmREll80A" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_tHuoEPpiEeWFtsmREll80A" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_qzf7pPpiEeWFtsmREll80A" name="professor" type="_k6EDEPpiEeWFtsmREll80A" association="_qzf7oPpiEeWFtsmREll80A">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_tHuoE_piEeWFtsmREll80A" value="-1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_tHuoEvpiEeWFtsmREll80A" value="2"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:Kind" xmi:id="_tqmroPpiEeWFtsmREll80A" name="Project" visibility="public"/>
+  <packagedElement xsi:type="RefOntoUML:Role" xmi:id="_vowaYPpiEeWFtsmREll80A" name="Approver" visibility="public">
+    <generalization xmi:id="_2biVwPpiEeWFtsmREll80A" general="_nyVQsPpiEeWFtsmREll80A"/>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:MaterialAssociation" xmi:id="_wfiRYPpiEeWFtsmREll80A" name="projectApprover" visibility="public" memberEnd="_wfiRYfpiEeWFtsmREll80A _wfiRZPpiEeWFtsmREll80A" isDerived="true" navigableOwnedEnd="_wfiRYfpiEeWFtsmREll80A _wfiRZPpiEeWFtsmREll80A">
+    <ownedEnd xmi:id="_wfiRYfpiEeWFtsmREll80A" name="approver" type="_vowaYPpiEeWFtsmREll80A" association="_wfiRYPpiEeWFtsmREll80A">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_1AbCofpiEeWFtsmREll80A" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_1AbCoPpiEeWFtsmREll80A" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_wfiRZPpiEeWFtsmREll80A" name="project" type="_tqmroPpiEeWFtsmREll80A" association="_wfiRYPpiEeWFtsmREll80A">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_1AbCo_piEeWFtsmREll80A" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_1AbCovpiEeWFtsmREll80A" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+</RefOntoUML:Model>

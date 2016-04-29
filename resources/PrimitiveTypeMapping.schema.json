@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "PrimitiveTypeMappings",
+  "description": "Dictionary of mapping from domain primitive types to platform specific ones.",
+  "additionalProperties": {
+    "type": "string"
+  }
+}

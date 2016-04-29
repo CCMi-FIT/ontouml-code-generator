@@ -1,0 +1,42 @@
+{
+  "name": "ontouml-codegen",
+  "version": "0.1.0",
+  "description": "Ccmi.OntoUml.CodeGenerator",
+  "main": "app.js",
+  "author": {
+    "name": "Dan Homola",
+    "email": "homoldan@fit.cvut.cz"
+  },
+  "repository": "CCMi-FIT/ontouml-code-generator",
+  "scripts": {
+    "build": "tsc",
+    "raw-coverage": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha",
+    "map-coverage": "./node_modules/.bin/remap-istanbul -i coverage/coverage.json -o coverage -t html",
+    "coverage": "npm run pretest && npm run raw-coverage && npm run map-coverage",
+    "prepublish": "typings install && npm run build",
+    "pretest": "tsc",
+    "start": "node ./app.js",
+    "test": "mocha"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "command-line-args": "^2.1.6",
+    "handlebars": "^4.0.5",
+    "json-format": "^0.1.2",
+    "lodash": "^4.11.1",
+    "mkdirp": "^0.5.1",
+    "q": "^1.4.1",
+    "tv4": "^1.2.7",
+    "xml2js": "^0.4.16"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^5.3.0",
+    "istanbul": "^0.4.3",
+    "mocha": "^2.4.5",
+    "mock-fs": "^3.8.0",
+    "remap-istanbul": "~0.6.3",
+    "typescript": "~1.8.10",
+    "typings": "^0.8.1"
+  }
+}

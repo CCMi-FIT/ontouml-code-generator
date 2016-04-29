@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ASCII"?>
+<RefOntoUML:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:RefOntoUML="http://nemo.inf.ufes.br/ontouml/refontouml" xmi:id="_i-qvYOumEeW57sl3rgOtGw" name="Model">
+  <packagedElement xsi:type="RefOntoUML:Kind" xmi:id="_j_MYQOumEeW57sl3rgOtGw" name="Person" visibility="public"/>
+  <packagedElement xsi:type="RefOntoUML:Role" xmi:id="_ld-DYOumEeW57sl3rgOtGw" name="Teacher" visibility="public">
+    <generalization xmi:id="_xQfPMOumEeW57sl3rgOtGw" general="_j_MYQOumEeW57sl3rgOtGw"/>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:Kind" xmi:id="_mpc_EOumEeW57sl3rgOtGw" name="School" visibility="public"/>
+  <packagedElement xsi:type="RefOntoUML:Relator" xmi:id="_nzZpsOumEeW57sl3rgOtGw" name="Tenure" visibility="public"/>
+  <packagedElement xsi:type="RefOntoUML:MaterialAssociation" xmi:id="_sQjxgOumEeW57sl3rgOtGw" name="teachesAt" visibility="public" memberEnd="_sQkYkOumEeW57sl3rgOtGw _sQkYk-umEeW57sl3rgOtGw" isDerived="true" navigableOwnedEnd="_sQkYkOumEeW57sl3rgOtGw _sQkYk-umEeW57sl3rgOtGw">
+    <ownedEnd xmi:id="_sQkYkOumEeW57sl3rgOtGw" name="teacher" type="_ld-DYOumEeW57sl3rgOtGw" association="_sQjxgOumEeW57sl3rgOtGw">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_9xgeYPBJEeWZ5sK5VL3fGw" value="-1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_9xf3UfBJEeWZ5sK5VL3fGw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_sQkYk-umEeW57sl3rgOtGw" name="school" type="_mpc_EOumEeW57sl3rgOtGw" association="_sQjxgOumEeW57sl3rgOtGw">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_9xgeYvBJEeWZ5sK5VL3fGw" value="-1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_9xgeYfBJEeWZ5sK5VL3fGw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:Mediation" xmi:id="_tJEG0OumEeW57sl3rgOtGw" name="teacherTenure" visibility="public" memberEnd="_tJEG0eumEeW57sl3rgOtGw _tJEG1OumEeW57sl3rgOtGw" navigableOwnedEnd="_tJEG0eumEeW57sl3rgOtGw _tJEG1OumEeW57sl3rgOtGw">
+    <ownedEnd xmi:id="_tJEG0eumEeW57sl3rgOtGw" name="tenure" type="_nzZpsOumEeW57sl3rgOtGw" association="_tJEG0OumEeW57sl3rgOtGw">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="__Uh54fBVEeWZ5sK5VL3fGw" value="-1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="__Uh54PBVEeWZ5sK5VL3fGw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_tJEG1OumEeW57sl3rgOtGw" name="myTeacher" type="_ld-DYOumEeW57sl3rgOtGw" isReadOnly="true" association="_tJEG0OumEeW57sl3rgOtGw">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="__Uh54_BVEeWZ5sK5VL3fGw" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="__Uh54vBVEeWZ5sK5VL3fGw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:Mediation" xmi:id="_ty340OumEeW57sl3rgOtGw" name="schoolTenure" visibility="public" memberEnd="_ty4f4OumEeW57sl3rgOtGw _ty4f4-umEeW57sl3rgOtGw" navigableOwnedEnd="_ty4f4OumEeW57sl3rgOtGw _ty4f4-umEeW57sl3rgOtGw">
+    <ownedEnd xmi:id="_ty4f4OumEeW57sl3rgOtGw" name="tenure" type="_nzZpsOumEeW57sl3rgOtGw" association="_ty340OumEeW57sl3rgOtGw">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_5HY6AOumEeW57sl3rgOtGw" value="-1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_5HYS8OumEeW57sl3rgOtGw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_ty4f4-umEeW57sl3rgOtGw" name="school" type="_mpc_EOumEeW57sl3rgOtGw" isReadOnly="true" association="_ty340OumEeW57sl3rgOtGw">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_5HY6AuumEeW57sl3rgOtGw" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_5HY6AeumEeW57sl3rgOtGw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:Derivation" xmi:id="__x_IYPBJEeWZ5sK5VL3fGw" name="Derivation1" visibility="public" memberEnd="__x_IYfBJEeWZ5sK5VL3fGw __x_IZPBJEeWZ5sK5VL3fGw" navigableOwnedEnd="__x_IYfBJEeWZ5sK5VL3fGw __x_IZPBJEeWZ5sK5VL3fGw">
+    <ownedEnd xmi:id="__x_IYfBJEeWZ5sK5VL3fGw" name="teachesat" type="_sQjxgOumEeW57sl3rgOtGw" association="__x_IYPBJEeWZ5sK5VL3fGw">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="__x_IYvBJEeWZ5sK5VL3fGw" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="__x_IY_BJEeWZ5sK5VL3fGw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="__x_IZPBJEeWZ5sK5VL3fGw" name="tenure" type="_nzZpsOumEeW57sl3rgOtGw" isReadOnly="true" association="__x_IYPBJEeWZ5sK5VL3fGw">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="__x_IZfBJEeWZ5sK5VL3fGw" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="__x_IZvBJEeWZ5sK5VL3fGw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+</RefOntoUML:Model>

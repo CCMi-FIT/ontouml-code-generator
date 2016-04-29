@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ASCII"?>
+<RefOntoUML:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:RefOntoUML="http://nemo.inf.ufes.br/ontouml/refontouml" xmi:id="_mF1gkOIiEeWUuLq86is2EA" name="Model">
+  <packagedElement xsi:type="RefOntoUML:Collective" xmi:id="_otv-AOIiEeWUuLq86is2EA" name="Club" visibility="public">
+    <ownedAttribute xmi:id="_tRgdEeIiEeWUuLq86is2EA" name="name" type="_tRgdEOIiEeWUuLq86is2EA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_tRgdEuIiEeWUuLq86is2EA" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_tRgdE-IiEeWUuLq86is2EA" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:PrimitiveType" xmi:id="_tRgdEOIiEeWUuLq86is2EA" name="string"/>
+  <packagedElement xsi:type="RefOntoUML:Collective" xmi:id="_w8ycAOIiEeWUuLq86is2EA" name="MensTeam" visibility="public"/>
+  <packagedElement xsi:type="RefOntoUML:Collective" xmi:id="_z-qRkOIiEeWUuLq86is2EA" name="WomensTeam" visibility="public"/>
+  <packagedElement xsi:type="RefOntoUML:Kind" xmi:id="_2EeukOIiEeWUuLq86is2EA" name="Person" visibility="public">
+    <ownedAttribute xmi:id="_4eXXEOIiEeWUuLq86is2EA" name="name" type="_tRgdEOIiEeWUuLq86is2EA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_4eXXEeIiEeWUuLq86is2EA" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_4eXXEuIiEeWUuLq86is2EA" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:SubKind" xmi:id="_5mO-EOIiEeWUuLq86is2EA" name="Man" visibility="public">
+    <generalization xmi:id="_A1k5oOIjEeWUuLq86is2EA" general="_2EeukOIiEeWUuLq86is2EA" generalizationSet="_CDalwOIjEeWUuLq86is2EA"/>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:SubKind" xmi:id="_64ZJgOIiEeWUuLq86is2EA" name="Woman" visibility="public">
+    <generalization xmi:id="_BRjrAOIjEeWUuLq86is2EA" general="_2EeukOIiEeWUuLq86is2EA" generalizationSet="_CDalwOIjEeWUuLq86is2EA"/>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:Kind" xmi:id="_9j6UkOIiEeWUuLq86is2EA" name="Mascot" visibility="public">
+    <ownedAttribute xmi:id="__xu3AOIiEeWUuLq86is2EA" name="nickname" type="_tRgdEOIiEeWUuLq86is2EA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="__xu3AeIiEeWUuLq86is2EA" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="__xu3AuIiEeWUuLq86is2EA" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:GeneralizationSet" xmi:id="_CDalwOIjEeWUuLq86is2EA" name="personSubkind" visibility="public" isCovering="true" isDisjoint="true" generalization="_BRjrAOIjEeWUuLq86is2EA _A1k5oOIjEeWUuLq86is2EA"/>
+  <packagedElement xsi:type="RefOntoUML:memberOf" xmi:id="_FD8XgOIjEeWUuLq86is2EA" name="womensTeamMembers" visibility="public" memberEnd="_FD8XgeIjEeWUuLq86is2EA _FD8XhOIjEeWUuLq86is2EA" navigableOwnedEnd="_FD8XgeIjEeWUuLq86is2EA _FD8XhOIjEeWUuLq86is2EA">
+    <ownedEnd xmi:id="_FD8XgeIjEeWUuLq86is2EA" name="womensteam" type="_z-qRkOIiEeWUuLq86is2EA" aggregation="shared" association="_FD8XgOIjEeWUuLq86is2EA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_hEtqAQo4EeauxPEJRowRfw" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_hEtqAAo4EeauxPEJRowRfw"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_FD8XhOIjEeWUuLq86is2EA" name="woman" type="_64ZJgOIiEeWUuLq86is2EA" association="_FD8XgOIjEeWUuLq86is2EA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_hEtqAwo4EeauxPEJRowRfw" value="-1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_hEtqAgo4EeauxPEJRowRfw" value="2"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:memberOf" xmi:id="_FfVTAOIjEeWUuLq86is2EA" name="mensTeamMembers" visibility="public" memberEnd="_FfVTAeIjEeWUuLq86is2EA _FfVTBOIjEeWUuLq86is2EA" navigableOwnedEnd="_FfVTAeIjEeWUuLq86is2EA _FfVTBOIjEeWUuLq86is2EA">
+    <ownedEnd xmi:id="_FfVTAeIjEeWUuLq86is2EA" name="mensteam" type="_w8ycAOIiEeWUuLq86is2EA" aggregation="shared" association="_FfVTAOIjEeWUuLq86is2EA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_gIOMkQo4EeauxPEJRowRfw" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_gIOMkAo4EeauxPEJRowRfw"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_FfVTBOIjEeWUuLq86is2EA" name="man" type="_5mO-EOIiEeWUuLq86is2EA" association="_FfVTAOIjEeWUuLq86is2EA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_gIOMkwo4EeauxPEJRowRfw" value="-1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_gIOMkgo4EeauxPEJRowRfw" value="2"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:subCollectionOf" xmi:id="_HL5igOIjEeWUuLq86is2EA" name="mensTeams" visibility="public" memberEnd="_HL5igeIjEeWUuLq86is2EA _HL6JkOIjEeWUuLq86is2EA" navigableOwnedEnd="_HL5igeIjEeWUuLq86is2EA _HL6JkOIjEeWUuLq86is2EA">
+    <ownedEnd xmi:id="_HL5igeIjEeWUuLq86is2EA" name="club" type="_otv-AOIiEeWUuLq86is2EA" aggregation="shared" association="_HL5igOIjEeWUuLq86is2EA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_MyLOgeIjEeWUuLq86is2EA" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_MyLOgOIjEeWUuLq86is2EA" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_HL6JkOIjEeWUuLq86is2EA" name="mensteam" type="_w8ycAOIiEeWUuLq86is2EA" association="_HL5igOIjEeWUuLq86is2EA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_MyLOg-IjEeWUuLq86is2EA" value="-1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_MyLOguIjEeWUuLq86is2EA" value="2"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:subCollectionOf" xmi:id="_HolegOIjEeWUuLq86is2EA" name="womensTeams" visibility="public" memberEnd="_HolegeIjEeWUuLq86is2EA _HolehOIjEeWUuLq86is2EA" navigableOwnedEnd="_HolegeIjEeWUuLq86is2EA _HolehOIjEeWUuLq86is2EA">
+    <ownedEnd xmi:id="_HolegeIjEeWUuLq86is2EA" name="club" type="_otv-AOIiEeWUuLq86is2EA" aggregation="shared" association="_HolegOIjEeWUuLq86is2EA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_OCWc8eIjEeWUuLq86is2EA" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_OCWc8OIjEeWUuLq86is2EA" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_HolehOIjEeWUuLq86is2EA" name="womensteam" type="_z-qRkOIiEeWUuLq86is2EA" association="_HolegOIjEeWUuLq86is2EA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_OCXrEeIjEeWUuLq86is2EA" value="-1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_OCXrEOIjEeWUuLq86is2EA" value="2"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:memberOf" xmi:id="_PTdfgOIjEeWUuLq86is2EA" name="womensTeamMascots" visibility="public" memberEnd="_PTdfgeIjEeWUuLq86is2EA _PTdfhOIjEeWUuLq86is2EA" navigableOwnedEnd="_PTdfgeIjEeWUuLq86is2EA _PTdfhOIjEeWUuLq86is2EA">
+    <ownedEnd xmi:id="_PTdfgeIjEeWUuLq86is2EA" name="womensteam" type="_z-qRkOIiEeWUuLq86is2EA" aggregation="shared" association="_PTdfgOIjEeWUuLq86is2EA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_RD6wgeIjEeWUuLq86is2EA" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_RD6wgOIjEeWUuLq86is2EA" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_PTdfhOIjEeWUuLq86is2EA" name="mascot" type="_9j6UkOIiEeWUuLq86is2EA" association="_PTdfgOIjEeWUuLq86is2EA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_RD6wg-IjEeWUuLq86is2EA" value="-1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_RD6wguIjEeWUuLq86is2EA" value="2"/>
+    </ownedEnd>
+  </packagedElement>
+</RefOntoUML:Model>

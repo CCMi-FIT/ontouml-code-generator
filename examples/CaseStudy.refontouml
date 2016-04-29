@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ASCII"?>
+<RefOntoUML:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:RefOntoUML="http://nemo.inf.ufes.br/ontouml/refontouml" xmi:id="_ihVYEf-7EeW6LMx0VhqoCQ" name="Model">
+  <packagedElement xsi:type="RefOntoUML:Kind" xmi:id="_RFvOcP-8EeW6LMx0VhqoCQ" name="Vehicle" visibility="public">
+    <ownedAttribute xmi:id="_fbDnkgoXEeauxPEJRowRfw" name="name" type="_fbDnkQoXEeauxPEJRowRfw">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_fbDnkwoXEeauxPEJRowRfw" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_fbDnlAoXEeauxPEJRowRfw" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:SubKind" xmi:id="_SPGqQP-8EeW6LMx0VhqoCQ" name="Boat" visibility="public">
+    <generalization xmi:id="_UUGn4P-8EeW6LMx0VhqoCQ" general="_RFvOcP-8EeW6LMx0VhqoCQ" generalizationSet="_GTvPAP-9EeW6LMx0VhqoCQ"/>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:SubKind" xmi:id="_TN7C8P-8EeW6LMx0VhqoCQ" name="Plane" visibility="public">
+    <generalization xmi:id="_UsjkIP-8EeW6LMx0VhqoCQ" general="_RFvOcP-8EeW6LMx0VhqoCQ" generalizationSet="_GTvPAP-9EeW6LMx0VhqoCQ"/>
+    <ownedAttribute xmi:id="_yVUD0P_fEeW6LMx0VhqoCQ" name="callSigns" type="_fbDnkQoXEeauxPEJRowRfw">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_fIKZYQoaEeauxPEJRowRfw" value="5"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_fIKZYAoaEeauxPEJRowRfw" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:GeneralizationSet" xmi:id="_GTvPAP-9EeW6LMx0VhqoCQ" name="vehicleSubkinds" visibility="public" isCovering="true" generalization="_UUGn4P-8EeW6LMx0VhqoCQ _UsjkIP-8EeW6LMx0VhqoCQ"/>
+  <packagedElement xsi:type="RefOntoUML:PrimitiveType" xmi:id="_yVTcwP_fEeW6LMx0VhqoCQ" name="string"/>
+  <packagedElement xsi:type="RefOntoUML:PrimitiveType" xmi:id="_fbDnkQoXEeauxPEJRowRfw" name="string"/>
+  <packagedElement xsi:type="RefOntoUML:Kind" xmi:id="_luzdkAoXEeauxPEJRowRfw" name="Port" visibility="public"/>
+  <packagedElement xsi:type="RefOntoUML:Role" xmi:id="_nnOXwAoXEeauxPEJRowRfw" name="Registrar" visibility="public">
+    <generalization xmi:id="_p3M2UAoXEeauxPEJRowRfw" general="_luzdkAoXEeauxPEJRowRfw"/>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:Relator" xmi:id="_qd0xcAoXEeauxPEJRowRfw" name="Registration" visibility="public"/>
+  <packagedElement xsi:type="RefOntoUML:Mediation" xmi:id="_8JZbUAoXEeauxPEJRowRfw" name="boatRegistration" visibility="public" memberEnd="_8JZbUQoXEeauxPEJRowRfw _8JZbVAoXEeauxPEJRowRfw" navigableOwnedEnd="_8JZbUQoXEeauxPEJRowRfw _8JZbVAoXEeauxPEJRowRfw">
+    <ownedEnd xmi:id="_8JZbUQoXEeauxPEJRowRfw" name="registration" type="_qd0xcAoXEeauxPEJRowRfw" association="_8JZbUAoXEeauxPEJRowRfw">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_CkPI0Aq9EeaTAZabObnNxg" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_CkOhwAq9EeaTAZabObnNxg"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_8JZbVAoXEeauxPEJRowRfw" name="boat" type="_SPGqQP-8EeW6LMx0VhqoCQ" isReadOnly="true" association="_8JZbUAoXEeauxPEJRowRfw">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_CkPI0gq9EeaTAZabObnNxg" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_CkPI0Qq9EeaTAZabObnNxg" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:Mediation" xmi:id="_C1HFYAoYEeauxPEJRowRfw" name="registrarRegistration" visibility="public" memberEnd="_C1HFYQoYEeauxPEJRowRfw _C1HFZAoYEeauxPEJRowRfw" navigableOwnedEnd="_C1HFYQoYEeauxPEJRowRfw _C1HFZAoYEeauxPEJRowRfw">
+    <ownedEnd xmi:id="_C1HFYQoYEeauxPEJRowRfw" name="registration" type="_qd0xcAoXEeauxPEJRowRfw" association="_C1HFYAoYEeauxPEJRowRfw">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_B_xJ0gq9EeaTAZabObnNxg" value="-1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_B_xJ0Qq9EeaTAZabObnNxg" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_C1HFZAoYEeauxPEJRowRfw" name="registrar" type="_nnOXwAoXEeauxPEJRowRfw" isReadOnly="true" association="_C1HFYAoYEeauxPEJRowRfw">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_B_xw4Qq9EeaTAZabObnNxg" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_B_xw4Aq9EeaTAZabObnNxg" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:MaterialAssociation" xmi:id="_IhLQUAoYEeauxPEJRowRfw" name="boatRegistrationDerived" visibility="public" memberEnd="_IhLQUQoYEeauxPEJRowRfw _IhLQVAoYEeauxPEJRowRfw" isDerived="true" navigableOwnedEnd="_IhLQUQoYEeauxPEJRowRfw _IhLQVAoYEeauxPEJRowRfw">
+    <ownedEnd xmi:id="_IhLQUQoYEeauxPEJRowRfw" name="registrar" type="_nnOXwAoXEeauxPEJRowRfw" association="_IhLQUAoYEeauxPEJRowRfw">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_KpeKkQq9EeaTAZabObnNxg" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_KpeKkAq9EeaTAZabObnNxg"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_IhLQVAoYEeauxPEJRowRfw" name="boat" type="_SPGqQP-8EeW6LMx0VhqoCQ" association="_IhLQUAoYEeauxPEJRowRfw">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_KpeKkwq9EeaTAZabObnNxg" value="-1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_KpeKkgq9EeaTAZabObnNxg" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:NominalQuality" xmi:id="__jK-EAoYEeauxPEJRowRfw" name="Location" visibility="public">
+    <ownedAttribute xmi:id="_D1NbAQoZEeauxPEJRowRfw" name="longitude" type="_D1NbAAoZEeauxPEJRowRfw">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_D1NbAgoZEeauxPEJRowRfw" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_D1NbAwoZEeauxPEJRowRfw" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_D1NbBAoZEeauxPEJRowRfw" name="latitude" type="_D1NbAAoZEeauxPEJRowRfw">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_D1NbBQoZEeauxPEJRowRfw" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_D1NbBgoZEeauxPEJRowRfw" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:PrimitiveType" xmi:id="_D1NbAAoZEeauxPEJRowRfw" name="decimal"/>
+  <packagedElement xsi:type="RefOntoUML:Characterization" xmi:id="_EoyNAAoZEeauxPEJRowRfw" name="portLocation" visibility="public" memberEnd="_EoyNAQoZEeauxPEJRowRfw _EoyNBAoZEeauxPEJRowRfw" navigableOwnedEnd="_EoyNAQoZEeauxPEJRowRfw _EoyNBAoZEeauxPEJRowRfw">
+    <ownedEnd xmi:id="_EoyNAQoZEeauxPEJRowRfw" name="location" type="__jK-EAoYEeauxPEJRowRfw" association="_EoyNAAoZEeauxPEJRowRfw">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_ecPkAQoZEeauxPEJRowRfw" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_ecPkAAoZEeauxPEJRowRfw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_EoyNBAoZEeauxPEJRowRfw" name="port" type="_luzdkAoXEeauxPEJRowRfw" isReadOnly="true" association="_EoyNAAoZEeauxPEJRowRfw">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_ecPkAwoZEeauxPEJRowRfw" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_ecPkAgoZEeauxPEJRowRfw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:Derivation" xmi:id="_SFK5oAoZEeauxPEJRowRfw" name="Derivation1" visibility="public" memberEnd="_SFK5oQoZEeauxPEJRowRfw _SFK5pAoZEeauxPEJRowRfw" navigableOwnedEnd="_SFK5oQoZEeauxPEJRowRfw _SFK5pAoZEeauxPEJRowRfw">
+    <ownedEnd xmi:id="_SFK5oQoZEeauxPEJRowRfw" name="boatregistrationderived" type="_IhLQUAoYEeauxPEJRowRfw" association="_SFK5oAoZEeauxPEJRowRfw">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_SFK5ogoZEeauxPEJRowRfw" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_SFK5owoZEeauxPEJRowRfw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_SFK5pAoZEeauxPEJRowRfw" name="registration" type="_qd0xcAoXEeauxPEJRowRfw" isReadOnly="true" association="_SFK5oAoZEeauxPEJRowRfw">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_SFK5pQoZEeauxPEJRowRfw" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_SFK5pgoZEeauxPEJRowRfw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+</RefOntoUML:Model>

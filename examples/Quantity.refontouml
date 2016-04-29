@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ASCII"?>
+<RefOntoUML:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:RefOntoUML="http://nemo.inf.ufes.br/ontouml/refontouml" xmi:id="_q4v6IeIbEeWUuLq86is2EA" name="Model">
+  <packagedElement xsi:type="RefOntoUML:Quantity" xmi:id="_47-kUOIbEeWUuLq86is2EA" name="CubaLibre" visibility="public">
+    <ownedAttribute xmi:id="_ZD0DceIcEeWUuLq86is2EA" name="rating" type="_ZD0DcOIcEeWUuLq86is2EA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_ZD0DcuIcEeWUuLq86is2EA" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_ZD0Dc-IcEeWUuLq86is2EA" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:Quantity" xmi:id="_Dn5UcOIcEeWUuLq86is2EA" name="Coke" visibility="public">
+    <ownedAttribute xmi:id="_cEs6MOIfEeWUuLq86is2EA" name="flavor" type="_ZD0DcOIcEeWUuLq86is2EA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_cEthQOIfEeWUuLq86is2EA" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_cEthQeIfEeWUuLq86is2EA" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:Quantity" xmi:id="_PxVLcOIcEeWUuLq86is2EA" name="GlucoseSyrup" visibility="public">
+    <ownedAttribute xmi:id="_S5EYceIcEeWUuLq86is2EA" name="sugarPercentage" type="_S5EYcOIcEeWUuLq86is2EA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_S5EYcuIcEeWUuLq86is2EA" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_S5EYc-IcEeWUuLq86is2EA" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:PrimitiveType" xmi:id="_S5EYcOIcEeWUuLq86is2EA" name="int"/>
+  <packagedElement xsi:type="RefOntoUML:Quantity" xmi:id="_UT4woOIcEeWUuLq86is2EA" name="Bacardi" visibility="public">
+    <ownedAttribute xmi:id="_WnQhcOIcEeWUuLq86is2EA" name="age" type="_S5EYcOIcEeWUuLq86is2EA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_WnQhceIcEeWUuLq86is2EA" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_WnQhcuIcEeWUuLq86is2EA" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:PrimitiveType" xmi:id="_ZD0DcOIcEeWUuLq86is2EA" name="string"/>
+  <packagedElement xsi:type="RefOntoUML:subQuantityOf" xmi:id="_dn7u4OIcEeWUuLq86is2EA" name="syrupInCoke" visibility="public" memberEnd="_dn7u4eIcEeWUuLq86is2EA _dn8V8uIcEeWUuLq86is2EA" navigableOwnedEnd="_dn7u4eIcEeWUuLq86is2EA _dn8V8uIcEeWUuLq86is2EA" isShareable="false">
+    <ownedEnd xmi:id="_dn7u4eIcEeWUuLq86is2EA" name="coke" type="_Dn5UcOIcEeWUuLq86is2EA" aggregation="composite" association="_dn7u4OIcEeWUuLq86is2EA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_H5-GQeIfEeWUuLq86is2EA" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_H5-GQOIfEeWUuLq86is2EA" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_dn8V8uIcEeWUuLq86is2EA" name="glucosesyrup" type="_PxVLcOIcEeWUuLq86is2EA" association="_dn7u4OIcEeWUuLq86is2EA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_H5-tUeIfEeWUuLq86is2EA" value="-1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_H5-tUOIfEeWUuLq86is2EA" value="2"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:subQuantityOf" xmi:id="_gtxecOIcEeWUuLq86is2EA" name="cokeInCuba" visibility="public" memberEnd="_gtxeceIcEeWUuLq86is2EA _gtxedOIcEeWUuLq86is2EA" navigableOwnedEnd="_gtxeceIcEeWUuLq86is2EA _gtxedOIcEeWUuLq86is2EA" isShareable="false">
+    <ownedEnd xmi:id="_gtxeceIcEeWUuLq86is2EA" name="cubalibre" type="_47-kUOIbEeWUuLq86is2EA" aggregation="composite" association="_gtxecOIcEeWUuLq86is2EA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_JPfuweIfEeWUuLq86is2EA" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_JPfuwOIfEeWUuLq86is2EA" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_gtxedOIcEeWUuLq86is2EA" name="coke" type="_Dn5UcOIcEeWUuLq86is2EA" association="_gtxecOIcEeWUuLq86is2EA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_JPgV0OIfEeWUuLq86is2EA" value="-1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_JPfuwuIfEeWUuLq86is2EA" value="2"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:subQuantityOf" xmi:id="_i1QvYOIcEeWUuLq86is2EA" name="bacardiInCuba" visibility="public" memberEnd="_i1QvYeIcEeWUuLq86is2EA _i1QvZOIcEeWUuLq86is2EA" navigableOwnedEnd="_i1QvYeIcEeWUuLq86is2EA _i1QvZOIcEeWUuLq86is2EA" isShareable="false">
+    <ownedEnd xmi:id="_i1QvYeIcEeWUuLq86is2EA" name="cubalibre" type="_47-kUOIbEeWUuLq86is2EA" aggregation="composite" association="_i1QvYOIcEeWUuLq86is2EA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_LLeTQeIfEeWUuLq86is2EA" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_LLeTQOIfEeWUuLq86is2EA" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_i1QvZOIcEeWUuLq86is2EA" name="bacardi" type="_UT4woOIcEeWUuLq86is2EA" association="_i1QvYOIcEeWUuLq86is2EA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_LLeTQ-IfEeWUuLq86is2EA" value="-1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_LLeTQuIfEeWUuLq86is2EA" value="2"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:Kind" xmi:id="_b0pSceLDEeWL-OtKeN-YNw" name="Glass" visibility="public">
+    <ownedAttribute xmi:id="_eXKSgOLDEeWL-OtKeN-YNw" name="volume" type="_S5EYcOIcEeWUuLq86is2EA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_eXKSgeLDEeWL-OtKeN-YNw" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_eXKSguLDEeWL-OtKeN-YNw" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:Association" xmi:id="_g83wgOLDEeWL-OtKeN-YNw" name="glassContent" visibility="public" memberEnd="_g83wgeLDEeWL-OtKeN-YNw _g83whOLDEeWL-OtKeN-YNw">
+    <ownedEnd xmi:id="_g83wgeLDEeWL-OtKeN-YNw" name="cubalibre" type="_47-kUOIbEeWUuLq86is2EA" association="_g83wgOLDEeWL-OtKeN-YNw">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_krxEIeLDEeWL-OtKeN-YNw" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_krxEIOLDEeWL-OtKeN-YNw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_g83whOLDEeWL-OtKeN-YNw" name="glass" type="_b0pSceLDEeWL-OtKeN-YNw" association="_g83wgOLDEeWL-OtKeN-YNw">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_krxEI-LDEeWL-OtKeN-YNw" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_krxEIuLDEeWL-OtKeN-YNw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+</RefOntoUML:Model>

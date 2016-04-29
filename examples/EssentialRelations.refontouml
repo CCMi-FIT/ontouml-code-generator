@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ASCII"?>
+<RefOntoUML:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:RefOntoUML="http://nemo.inf.ufes.br/ontouml/refontouml" xmi:id="_ihVYEf-7EeW6LMx0VhqoCQ" name="Model">
+  <packagedElement xsi:type="RefOntoUML:Kind" xmi:id="_RFvOcP-8EeW6LMx0VhqoCQ" name="Vehicle" visibility="public"/>
+  <packagedElement xsi:type="RefOntoUML:SubKind" xmi:id="_SPGqQP-8EeW6LMx0VhqoCQ" name="Boat" visibility="public">
+    <generalization xmi:id="_UUGn4P-8EeW6LMx0VhqoCQ" general="_RFvOcP-8EeW6LMx0VhqoCQ" generalizationSet="_GTvPAP-9EeW6LMx0VhqoCQ"/>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:SubKind" xmi:id="_TN7C8P-8EeW6LMx0VhqoCQ" name="Plane" visibility="public">
+    <generalization xmi:id="_UsjkIP-8EeW6LMx0VhqoCQ" general="_RFvOcP-8EeW6LMx0VhqoCQ" generalizationSet="_GTvPAP-9EeW6LMx0VhqoCQ"/>
+    <ownedAttribute xmi:id="_yVUD0P_fEeW6LMx0VhqoCQ" name="wingSpan" type="_yVTcwP_fEeW6LMx0VhqoCQ">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_yVUD0f_fEeW6LMx0VhqoCQ" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_yVUD0v_fEeW6LMx0VhqoCQ" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:GeneralizationSet" xmi:id="_GTvPAP-9EeW6LMx0VhqoCQ" name="vehicleSubkinds" visibility="public" generalization="_UUGn4P-8EeW6LMx0VhqoCQ _UsjkIP-8EeW6LMx0VhqoCQ"/>
+  <packagedElement xsi:type="RefOntoUML:PrimitiveType" xmi:id="_yVTcwP_fEeW6LMx0VhqoCQ" name="int"/>
+  <packagedElement xsi:type="RefOntoUML:Kind" xmi:id="_s4PwoP__EeW6LMx0VhqoCQ" name="Rotor" visibility="public"/>
+  <packagedElement xsi:type="RefOntoUML:componentOf" xmi:id="_us5lIP__EeW6LMx0VhqoCQ" name="planeRotor" visibility="public" memberEnd="_us5lIf__EeW6LMx0VhqoCQ _us5lJP__EeW6LMx0VhqoCQ" navigableOwnedEnd="_us5lIf__EeW6LMx0VhqoCQ _us5lJP__EeW6LMx0VhqoCQ" isShareable="false" isEssential="true">
+    <ownedEnd xmi:id="_us5lIf__EeW6LMx0VhqoCQ" name="plane" type="_TN7C8P-8EeW6LMx0VhqoCQ" aggregation="shared" association="_us5lIP__EeW6LMx0VhqoCQ">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_yOMhof__EeW6LMx0VhqoCQ" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_yOMhoP__EeW6LMx0VhqoCQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_us5lJP__EeW6LMx0VhqoCQ" name="rotor" type="_s4PwoP__EeW6LMx0VhqoCQ" association="_us5lIP__EeW6LMx0VhqoCQ">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_yOMho___EeW6LMx0VhqoCQ" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_yOMhov__EeW6LMx0VhqoCQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+</RefOntoUML:Model>

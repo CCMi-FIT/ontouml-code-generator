@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ASCII"?>
+<RefOntoUML:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:RefOntoUML="http://nemo.inf.ufes.br/ontouml/refontouml" xmi:id="_g6ZMAeCZEeWKcZxb8CbYMw" name="Model">
+  <packagedElement xsi:type="RefOntoUML:Mixin" xmi:id="_jvTjoOCZEeWKcZxb8CbYMw" name="Ridable" visibility="public" isAbstract="true">
+    <ownedAttribute xmi:id="_9kMokeCaEeWKcZxb8CbYMw" name="topSpeed" type="_9kMokOCaEeWKcZxb8CbYMw">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_9kMokuCaEeWKcZxb8CbYMw" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_9kMok-CaEeWKcZxb8CbYMw" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:Kind" xmi:id="_qJlfcOCZEeWKcZxb8CbYMw" name="Animal" visibility="public">
+    <ownedAttribute xmi:id="_6Ur1EeCZEeWKcZxb8CbYMw" name="name" type="_6Ur1EOCZEeWKcZxb8CbYMw">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_6Ur1EuCZEeWKcZxb8CbYMw" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_6Ur1E-CZEeWKcZxb8CbYMw" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:Phase" xmi:id="_rcIscOCZEeWKcZxb8CbYMw" name="LiveAnimal" visibility="public">
+    <generalization xmi:id="_xrnGcOCZEeWKcZxb8CbYMw" general="_jvTjoOCZEeWKcZxb8CbYMw" generalizationSet="_yy0mIOCZEeWKcZxb8CbYMw"/>
+    <generalization xmi:id="_0tMBEOCZEeWKcZxb8CbYMw" general="_qJlfcOCZEeWKcZxb8CbYMw" generalizationSet="_1-45gOCZEeWKcZxb8CbYMw"/>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:Phase" xmi:id="_tUG6sOCZEeWKcZxb8CbYMw" name="DeadAnimal" visibility="public">
+    <generalization xmi:id="_1BYvcOCZEeWKcZxb8CbYMw" general="_qJlfcOCZEeWKcZxb8CbYMw" generalizationSet="_1-45gOCZEeWKcZxb8CbYMw"/>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:Kind" xmi:id="_wptkkOCZEeWKcZxb8CbYMw" name="Car" visibility="public">
+    <generalization xmi:id="_yGlyQOCZEeWKcZxb8CbYMw" general="_jvTjoOCZEeWKcZxb8CbYMw" generalizationSet="_yy0mIOCZEeWKcZxb8CbYMw"/>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:GeneralizationSet" xmi:id="_yy0mIOCZEeWKcZxb8CbYMw" name="ridables" visibility="public" isDisjoint="true" generalization="_xrnGcOCZEeWKcZxb8CbYMw _yGlyQOCZEeWKcZxb8CbYMw"/>
+  <packagedElement xsi:type="RefOntoUML:GeneralizationSet" xmi:id="_1-45gOCZEeWKcZxb8CbYMw" name="animalPhases" visibility="public" isCovering="true" isDisjoint="true" generalization="_0tMBEOCZEeWKcZxb8CbYMw _1BYvcOCZEeWKcZxb8CbYMw"/>
+  <packagedElement xsi:type="RefOntoUML:PrimitiveType" xmi:id="_6Ur1EOCZEeWKcZxb8CbYMw" name="string"/>
+  <packagedElement xsi:type="RefOntoUML:PrimitiveType" xmi:id="_9kMokOCaEeWKcZxb8CbYMw" name="int"/>
+</RefOntoUML:Model>

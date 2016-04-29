@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ASCII"?>
+<RefOntoUML:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:RefOntoUML="http://nemo.inf.ufes.br/ontouml/refontouml" xmi:id="_O7z54Qu3EeaitcYJw3mSKA" name="Model">
+  <packagedElement xsi:type="RefOntoUML:Kind" xmi:id="_zBmcUAu3EeaitcYJw3mSKA" name="Person" visibility="public">
+    <generalization xmi:id="_zom-sAvHEeaitcYJw3mSKA" general="_xKCDcAvHEeaitcYJw3mSKA"/>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:Collective" xmi:id="_0bF-0Au3EeaitcYJw3mSKA" name="Team" visibility="public"/>
+  <packagedElement xsi:type="RefOntoUML:memberOf" xmi:id="_33l64Au3EeaitcYJw3mSKA" name="personTeam" visibility="public" memberEnd="_33l64Qu3EeaitcYJw3mSKA _33l65Au3EeaitcYJw3mSKA" navigableOwnedEnd="_33l64Qu3EeaitcYJw3mSKA _33l65Au3EeaitcYJw3mSKA">
+    <ownedEnd xmi:id="_33l64Qu3EeaitcYJw3mSKA" name="team" type="_0bF-0Au3EeaitcYJw3mSKA" aggregation="shared" association="_33l64Au3EeaitcYJw3mSKA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_vsxQsQvGEeaitcYJw3mSKA" value="-1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_vsxQsAvGEeaitcYJw3mSKA"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_33l65Au3EeaitcYJw3mSKA" name="livingperson" type="_7TQJcAu3EeaitcYJw3mSKA" association="_33l64Au3EeaitcYJw3mSKA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_vsx3wQvGEeaitcYJw3mSKA" value="-1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_vsx3wAvGEeaitcYJw3mSKA"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:Phase" xmi:id="_7TQJcAu3EeaitcYJw3mSKA" name="LivingPerson" visibility="public">
+    <generalization xmi:id="_Ed0bkAu4EeaitcYJw3mSKA" general="_zBmcUAu3EeaitcYJw3mSKA" generalizationSet="_TEGIcAu4EeaitcYJw3mSKA"/>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:Phase" xmi:id="_8ZUZoAu3EeaitcYJw3mSKA" name="DeadPerson" visibility="public">
+    <generalization xmi:id="_E6bfEAu4EeaitcYJw3mSKA" general="_zBmcUAu3EeaitcYJw3mSKA" generalizationSet="_TEGIcAu4EeaitcYJw3mSKA"/>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:Kind" xmi:id="__mk_0Au3EeaitcYJw3mSKA" name="Brain" visibility="public"/>
+  <packagedElement xsi:type="RefOntoUML:componentOf" xmi:id="_BDzy0Au4EeaitcYJw3mSKA" name="personBrain" visibility="public" memberEnd="_BDzy0Qu4EeaitcYJw3mSKA _BDzy1Au4EeaitcYJw3mSKA" navigableOwnedEnd="_BDzy0Qu4EeaitcYJw3mSKA _BDzy1Au4EeaitcYJw3mSKA" isShareable="false" isEssential="true">
+    <ownedEnd xmi:id="_BDzy0Qu4EeaitcYJw3mSKA" name="person" type="_zBmcUAu3EeaitcYJw3mSKA" aggregation="shared" association="_BDzy0Au4EeaitcYJw3mSKA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_DrK2oAu4EeaitcYJw3mSKA" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_DrKPkAu4EeaitcYJw3mSKA" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_BDzy1Au4EeaitcYJw3mSKA" name="brain" type="__mk_0Au3EeaitcYJw3mSKA" association="_BDzy0Au4EeaitcYJw3mSKA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_DrK2ogu4EeaitcYJw3mSKA" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_DrK2oQu4EeaitcYJw3mSKA" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:GeneralizationSet" xmi:id="_TEGIcAu4EeaitcYJw3mSKA" name="personPhase" visibility="public" isCovering="true" isDisjoint="true" generalization="_Ed0bkAu4EeaitcYJw3mSKA _E6bfEAu4EeaitcYJw3mSKA"/>
+  <packagedElement xsi:type="RefOntoUML:PrimitiveType" xmi:id="_mSEZMAu4EeaitcYJw3mSKA" name="string"/>
+  <packagedElement xsi:type="RefOntoUML:Kind" xmi:id="_tRs8cAvGEeaitcYJw3mSKA" name="Robot" visibility="public">
+    <generalization xmi:id="_0EBIUAvHEeaitcYJw3mSKA" general="_xKCDcAvHEeaitcYJw3mSKA"/>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:memberOf" xmi:id="_wvaZcAvGEeaitcYJw3mSKA" name="robotTeam" visibility="public" memberEnd="_wvaZcQvGEeaitcYJw3mSKA _wvaZdAvGEeaitcYJw3mSKA" navigableOwnedEnd="_wvaZcQvGEeaitcYJw3mSKA _wvaZdAvGEeaitcYJw3mSKA">
+    <ownedEnd xmi:id="_wvaZcQvGEeaitcYJw3mSKA" name="team" type="_0bF-0Au3EeaitcYJw3mSKA" aggregation="shared" association="_wvaZcAvGEeaitcYJw3mSKA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_z2KH8QvGEeaitcYJw3mSKA" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_z2KH8AvGEeaitcYJw3mSKA" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_wvaZdAvGEeaitcYJw3mSKA" name="robot" type="_tRs8cAvGEeaitcYJw3mSKA" association="_wvaZcAvGEeaitcYJw3mSKA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_z2KH8wvGEeaitcYJw3mSKA" value="-1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_z2KH8gvGEeaitcYJw3mSKA"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:Category" xmi:id="_xKCDcAvHEeaitcYJw3mSKA" name="NamedIndividual" visibility="public" isAbstract="true">
+    <ownedAttribute xmi:id="_2biZUAvHEeaitcYJw3mSKA" name="name" type="_mSEZMAu4EeaitcYJw3mSKA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_2biZUQvHEeaitcYJw3mSKA" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_2bjAYAvHEeaitcYJw3mSKA" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+</RefOntoUML:Model>

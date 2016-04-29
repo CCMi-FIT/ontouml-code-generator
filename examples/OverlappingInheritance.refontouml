@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ASCII"?>
+<RefOntoUML:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:RefOntoUML="http://nemo.inf.ufes.br/ontouml/refontouml" xmi:id="_BfPJcQhpEeaMfKfu3Yk4nQ" name="Model">
+  <packagedElement xsi:type="RefOntoUML:Kind" xmi:id="_gIaSMAhpEeaMfKfu3Yk4nQ" name="Vehicle" visibility="public">
+    <ownedAttribute xmi:id="_kRXroQhpEeaMfKfu3Yk4nQ" name="brand" type="_kRXroAhpEeaMfKfu3Yk4nQ">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_kRXroghpEeaMfKfu3Yk4nQ" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_kRXrowhpEeaMfKfu3Yk4nQ" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:PrimitiveType" xmi:id="_kRXroAhpEeaMfKfu3Yk4nQ" name="string"/>
+  <packagedElement xsi:type="RefOntoUML:SubKind" xmi:id="_lJNSkAhpEeaMfKfu3Yk4nQ" name="Boat" visibility="public">
+    <generalization xmi:id="_sr62EAhpEeaMfKfu3Yk4nQ" general="_gIaSMAhpEeaMfKfu3Yk4nQ" generalizationSet="_tfV3EAhpEeaMfKfu3Yk4nQ"/>
+    <ownedAttribute xmi:id="_zvkfAQhpEeaMfKfu3Yk4nQ" name="tonnage" type="_zvkfAAhpEeaMfKfu3Yk4nQ">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_zvkfAghpEeaMfKfu3Yk4nQ" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_zvkfAwhpEeaMfKfu3Yk4nQ" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:SubKind" xmi:id="_nVye4AhpEeaMfKfu3Yk4nQ" name="Plane" visibility="public">
+    <generalization xmi:id="_tD208AhpEeaMfKfu3Yk4nQ" general="_gIaSMAhpEeaMfKfu3Yk4nQ" generalizationSet="_tfV3EAhpEeaMfKfu3Yk4nQ"/>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:SubKind" xmi:id="_oBDCYAhpEeaMfKfu3Yk4nQ" name="MotorBoat" visibility="public">
+    <generalization xmi:id="_qbBxgAhpEeaMfKfu3Yk4nQ" general="_lJNSkAhpEeaMfKfu3Yk4nQ" generalizationSet="_rHt4YAhpEeaMfKfu3Yk4nQ"/>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:SubKind" xmi:id="_pEp0cAhpEeaMfKfu3Yk4nQ" name="SailsBoat" visibility="public">
+    <generalization xmi:id="_qwK7EAhpEeaMfKfu3Yk4nQ" general="_lJNSkAhpEeaMfKfu3Yk4nQ" generalizationSet="_rHt4YAhpEeaMfKfu3Yk4nQ"/>
+    <ownedAttribute xmi:id="_2-_oYAhpEeaMfKfu3Yk4nQ" name="sailsNumber" type="_zvkfAAhpEeaMfKfu3Yk4nQ">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_2-_oYQhpEeaMfKfu3Yk4nQ" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_2-_oYghpEeaMfKfu3Yk4nQ" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:GeneralizationSet" xmi:id="_rHt4YAhpEeaMfKfu3Yk4nQ" name="boatTypes" visibility="public" isCovering="true" generalization="_qbBxgAhpEeaMfKfu3Yk4nQ _qwK7EAhpEeaMfKfu3Yk4nQ"/>
+  <packagedElement xsi:type="RefOntoUML:GeneralizationSet" xmi:id="_tfV3EAhpEeaMfKfu3Yk4nQ" name="vehicleTypes" visibility="public" isCovering="true" generalization="_sr62EAhpEeaMfKfu3Yk4nQ _tD208AhpEeaMfKfu3Yk4nQ"/>
+  <packagedElement xsi:type="RefOntoUML:PrimitiveType" xmi:id="_zvkfAAhpEeaMfKfu3Yk4nQ" name="int"/>
+  <packagedElement xsi:type="RefOntoUML:Kind" xmi:id="_PHhSIAhrEeaMfKfu3Yk4nQ" name="Port" visibility="public"/>
+  <packagedElement xsi:type="RefOntoUML:Relator" xmi:id="_UhBO8AiCEeaMfKfu3Yk4nQ" name="Registration" visibility="public"/>
+  <packagedElement xsi:type="RefOntoUML:MaterialAssociation" xmi:id="_XADdMAiCEeaMfKfu3Yk4nQ" name="portRegistration" visibility="public" memberEnd="_XADdMQiCEeaMfKfu3Yk4nQ _XADdNAiCEeaMfKfu3Yk4nQ" isDerived="true" navigableOwnedEnd="_XADdMQiCEeaMfKfu3Yk4nQ _XADdNAiCEeaMfKfu3Yk4nQ">
+    <ownedEnd xmi:id="_XADdMQiCEeaMfKfu3Yk4nQ" name="port" type="_PHhSIAhrEeaMfKfu3Yk4nQ" association="_XADdMAiCEeaMfKfu3Yk4nQ">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_c3SWUQiCEeaMfKfu3Yk4nQ" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_c3SWUAiCEeaMfKfu3Yk4nQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_XADdNAiCEeaMfKfu3Yk4nQ" name="registration" type="_UhBO8AiCEeaMfKfu3Yk4nQ" association="_XADdMAiCEeaMfKfu3Yk4nQ">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_c3SWUwiCEeaMfKfu3Yk4nQ" value="-1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_c3SWUgiCEeaMfKfu3Yk4nQ"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:MaterialAssociation" xmi:id="_YnkNkAiCEeaMfKfu3Yk4nQ" name="boatRegistration" visibility="public" memberEnd="_YnkNkQiCEeaMfKfu3Yk4nQ _YnkNlAiCEeaMfKfu3Yk4nQ" isDerived="true" navigableOwnedEnd="_YnkNkQiCEeaMfKfu3Yk4nQ _YnkNlAiCEeaMfKfu3Yk4nQ">
+    <ownedEnd xmi:id="_YnkNkQiCEeaMfKfu3Yk4nQ" name="registration" type="_UhBO8AiCEeaMfKfu3Yk4nQ" association="_YnkNkAiCEeaMfKfu3Yk4nQ">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_a13RIQiCEeaMfKfu3Yk4nQ" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_a13RIAiCEeaMfKfu3Yk4nQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_YnkNlAiCEeaMfKfu3Yk4nQ" name="boat" type="_lJNSkAhpEeaMfKfu3Yk4nQ" association="_YnkNkAiCEeaMfKfu3Yk4nQ">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_a13RIwiCEeaMfKfu3Yk4nQ" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_a13RIgiCEeaMfKfu3Yk4nQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:MaterialAssociation" xmi:id="_dpAuMAiCEeaMfKfu3Yk4nQ" name="boatPort" visibility="public" memberEnd="_dpAuMQiCEeaMfKfu3Yk4nQ _dpAuNAiCEeaMfKfu3Yk4nQ" isDerived="true" navigableOwnedEnd="_dpAuMQiCEeaMfKfu3Yk4nQ _dpAuNAiCEeaMfKfu3Yk4nQ">
+    <ownedEnd xmi:id="_dpAuMQiCEeaMfKfu3Yk4nQ" name="boat" type="_lJNSkAhpEeaMfKfu3Yk4nQ" association="_dpAuMAiCEeaMfKfu3Yk4nQ">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_fuZGUQiCEeaMfKfu3Yk4nQ" value="-1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_fuZGUAiCEeaMfKfu3Yk4nQ"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_dpAuNAiCEeaMfKfu3Yk4nQ" name="port" type="_PHhSIAhrEeaMfKfu3Yk4nQ" association="_dpAuMAiCEeaMfKfu3Yk4nQ">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_fuZGUwiCEeaMfKfu3Yk4nQ" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_fuZGUgiCEeaMfKfu3Yk4nQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:Derivation" xmi:id="_j8al8AiCEeaMfKfu3Yk4nQ" name="boatRegistrationDerivation" visibility="public" memberEnd="_j8al8QiCEeaMfKfu3Yk4nQ _j8al9AiCEeaMfKfu3Yk4nQ" navigableOwnedEnd="_j8al8QiCEeaMfKfu3Yk4nQ _j8al9AiCEeaMfKfu3Yk4nQ">
+    <ownedEnd xmi:id="_j8al8QiCEeaMfKfu3Yk4nQ" name="boatport" type="_dpAuMAiCEeaMfKfu3Yk4nQ" association="_j8al8AiCEeaMfKfu3Yk4nQ">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_oEmjUQiCEeaMfKfu3Yk4nQ" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_oEmjUAiCEeaMfKfu3Yk4nQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_j8al9AiCEeaMfKfu3Yk4nQ" name="registration" type="_UhBO8AiCEeaMfKfu3Yk4nQ" isReadOnly="true" association="_j8al8AiCEeaMfKfu3Yk4nQ">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_oEnKYAiCEeaMfKfu3Yk4nQ" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_oEmjUgiCEeaMfKfu3Yk4nQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+</RefOntoUML:Model>

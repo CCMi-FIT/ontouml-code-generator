@@ -1,0 +1,423 @@
+{{!-- inline partials --}}
+{{#* inline "typeName"}}{{#if typeInfo.isInterface}}I{{className typeInfo.name}}{{else if typeInfo.isReference}}I{{className typeInfo.name}}{{else}}{{typeInfo.name}}{{#if typeInfo.shouldMakeNullable}}?{{/if}}{{/if}}{{/inline}}
+{{#* inline "typeSignature"}}{{#if isCollection}}IBoundedCollection<{{> typeName}}>{{else}}{{> typeName}}{{/if}}{{/inline}}
+{{#* inline "ctorTypeSignature"}}{{> typeName}}{{#if isCollection}}[]{{/if}}{{/inline}}
+{{#* inline "parameterList"}}{{#each parameters}}{{> typeSignature}} {{parameterName name}}{{#unless @last}}, {{/unless}}{{/each}}{{/inline}}
+{{#* inline "ctorParameterList"}}{{#each parameters}}{{> ctorTypeSignature}} {{parameterName name}}{{#unless @last}}, {{/unless}}{{/each}}{{/inline}}
+{{!-- relation methodNames --}}
+{{#* inline "relationGet"}}Get{{className otherItemName}}{{/inline}}
+{{#* inline "relationGetMany"}}Get{{pluralClassName otherItemName}}{{/inline}}
+{{#* inline "relationSet"}}Set{{className otherItemName}}{{/inline}}
+{{#* inline "relationUnset"}}Unset{{className otherItemName}}{{/inline}}
+{{#* inline "relationAdd"}}Add{{className otherItemName}}{{/inline}}
+{{#* inline "relationRemove"}}Remove{{className otherItemName}}{{/inline}}
+{{!-- /relation methodNames --}}
+{{#* inline "methodSignature"}}{{#if typeInfo}}{{> typeSignature}}{{else}}void{{/if}} {{methodName name}}({{> parameterList}}){{/inline}}
+{{#* inline "methodDeclaration"}}
+public {{> methodSignature}}
+{
+    throw new NotImplementedException();
+}
+{{/inline}}
+{{#* inline "propertyBackingField"}}
+private {{> typeSignature}} {{fieldName name}};
+{{/inline}}
+{{#* inline "collectionSetterConstraints"}}
+{{#if hasConstraints}}
+if (value != null)
+{
+{{#if maxItems}}
+    const int MAX_ITEMS = {{maxItems}};
+    if (value.MaxItems > MAX_ITEMS)
+        throw new InvalidOperationException("The source collection for {{propertyName name}} is too small.");
+    value.MaxItems = MAX_ITEMS;
+{{/if}}
+}
+{{/if}}
+{{/inline}}
+{{#* inline "propertyDeclaration"}}
+{{> propertyBackingField}}
+public virtual {{> typeSignature}} {{propertyName name}}
+{
+    get { return {{fieldName name}}; }
+    set 
+    {
+        {{> collectionSetterConstraints}}
+        {{fieldName name}} = value;
+    }
+}
+{{/inline}}
+
+{{#* inline "unionClassesMethodCalls"}}
+{{#each methods}}
+public {{> methodSignature}} => {{fieldName ../outter}}.{{methodName name}}({{#each parameters}}{{parameterName name}}{{#unless @last}}, {{/unless}}{{/each}});
+{{/each}}
+{{/inline}}
+
+{{#* inline "unionClassesPropDelegation"}}
+{{#each props}}
+public {{> typeSignature}} {{propertyName name}}
+{
+    get { return {{fieldName ../outter}}.{{propertyName name}}; }
+    set { {{fieldName ../outter}}.{{propertyName name}} = value; }
+}
+{{/each}}
+{{/inline}}
+
+{{!-- helperInlines --}}
+{{#* inline "oneSideRelationDelegation"}}
+{{#if hasSet}}
+public void {{> relationSet}}(I{{className otherClassName}} {{fieldName otherItemName}}) => {{fieldName outter}}.{{> relationSet}}({{fieldName otherItemName}});
+{{/if}}
+{{#if hasUnset}}
+public void {{> relationUnset}}() => {{fieldName outter}}.{{> relationUnset}}();
+{{/if}}
+public I{{className otherClassName}} {{> relationGet}}() => {{fieldName outter}}.{{> relationGet}}();
+{{/inline}}
+{{#* inline "manySideRelationDelegation"}}
+{{#if hasSet}}
+public void {{> relationAdd}}(I{{className otherClassName}} {{fieldName otherItemName}}) => {{fieldName outter}}.{{> relationAdd}}({{fieldName otherItemName}});
+{{/if}}
+{{#if hasUnset}}
+public void {{> relationRemove}}(I{{className otherClassName}} {{fieldName otherItemName}}) => {{fieldName outter}}.{{> relationRemove}}({{fieldName otherItemName}});
+{{/if}}
+public IEnumerable<I{{className otherClassName}}> {{> relationGetMany}}() => {{fieldName outter}}.{{> relationGetMany}}();
+{{/inline}}
+{{!-- /helperInlines --}}
+{{#* inline "unionClassesRelationDelegation"}}
+{{#each relations}}
+{{#if isOneToOne}}
+{{> oneSideRelationDelegation outter=../outter}}
+{{else if isOneToMany}}
+{{#if isSource}}
+{{> manySideRelationDelegation outter=../outter}}
+{{else}}
+{{> oneSideRelationDelegation outter=../outter}}
+{{/if}}
+{{else}}
+{{> manySideRelationDelegation outter=../outter}}
+{{/if}}
+{{/each}}
+{{/inline}}
+
+{{#* inline "unionClassesDerivedRelationDelegation"}}
+{{#each derivedRelations}}
+{{#if isManyResults}}
+public IEnumerable<I{{className otherClassName}}> {{> relationGetMany}}() => {{fieldName ../outter}}.{{> relationGetMany}}();
+{{else}}
+public I{{className otherClassName}} {{> relationGet}}() => {{fieldName ../outter}}.{{> relationGet}}();
+{{/if}}
+{{/each}}
+{{/inline}}
+
+{{#* inline "relationMethodParameters"}}{{#if isSource}}this, {{fieldName otherItemName}}{{else}}{{fieldName otherItemName}}, this{{/if}}{{/inline}}
+
+{{#* inline "oneSideRelationInterface"}}
+{{#if hasSet}}
+void {{> relationSet}}(I{{className otherClassName}} {{fieldName otherItemName}});
+{{/if}}
+{{#if hasUnset}}
+void {{> relationUnset}}();
+{{/if}}
+I{{className otherClassName}} {{> relationGet}}();
+{{/inline}}
+
+{{#* inline "manySideRelationInterface"}}
+{{#if hasSet}}
+void {{> relationAdd}}(I{{className otherClassName}} {{fieldName otherItemName}});
+{{/if}}
+{{#if hasUnset}}
+void {{> relationRemove}}(I{{className otherClassName}} {{fieldName otherItemName}});
+{{/if}}
+IEnumerable<I{{className otherClassName}}> {{> relationGetMany}}();
+{{/inline}}
+
+{{#* inline "oneSideRelationSetUnset"}}
+{{#* inline "unsetBase"}}
+void {{> relationUnset}}()
+{
+{{#if shouldInvalidateOnRemove}}
+    {{> relationGet}}()?.Invalidate();
+{{/if}}
+    {{associationFieldName name}}.DestroyLink({{#if isOneToMany}}{{associationFieldName name}}.GetOne(this), this{{else}}{{#if isSource}}this, {{associationFieldName name}}.GetRight(this){{else}}{{associationFieldName name}}.GetLeft(this), this{{/if}}{{/if}});
+}
+{{/inline}}
+{{#if hasSet}}
+public void {{> relationSet}}(I{{className otherClassName}} {{fieldName otherItemName}})
+{
+    {{> relationUnset}}();
+    {{associationFieldName name}}.CreateLink({{> relationMethodParameters}});
+}
+{{#unless hasUnset}}
+private {{> unsetBase }}
+{{/unless}}
+{{/if}}
+{{#if hasUnset}}
+public {{> unsetBase }}
+{{/if}}
+{{/inline}}
+
+{{#* inline "manySideRelationSetUnset"}}
+{{#if hasSet}}
+public void {{> relationAdd}}(I{{className otherClassName}} {{fieldName otherItemName}}) => {{associationFieldName name}}.CreateLink({{> relationMethodParameters}});
+{{/if}}
+{{#if hasUnset}}
+public void {{> relationRemove}}(I{{className otherClassName}} {{fieldName otherItemName}})
+{
+    {{#if shouldInvalidateOnRemove}}
+    {{fieldName otherItemName}}?.Invalidate();
+    {{/if}}
+    {{associationFieldName name}}.DestroyLink({{> relationMethodParameters}});
+}
+{{/if}}
+{{/inline}}
+
+{{#* inline "isValidOneEnd"}}
+var {{toValidateFieldName otherItemName}} = {{> relationGet}}();
+if ({{associationFieldName name}} == null{{#if minItems}} || {{toValidateFieldName otherItemName}} == null{{/if}} || (deep && !{{toValidateFieldName otherItemName}}.IsValid(deep))) return false;
+{{/inline}}
+{{#* inline "isValidManyEnd"}}
+{{#if minItems}}
+const int {{minItemsConstantName otherItemName}} = {{minItems}};
+{{/if}}
+{{#if maxItems}}
+const int {{maxItemsConstantName otherItemName}} = {{maxItems}};
+{{/if}}
+var {{toValidateFieldName otherItemName}} = {{> relationGetMany}}();
+{{#if hasConstraints}}
+var {{countFieldName otherItemName}} = {{toValidateFieldName otherItemName}}.Count();
+{{/if}}
+if ({{associationFieldName name}} == null{{#if minItems}} || {{countFieldName otherItemName}} < {{minItemsConstantName otherItemName}}{{/if}}{{#if maxItems}} || {{countFieldName otherItemName}} > {{maxItemsConstantName otherItemName}}{{/if}} || (deep && {{toValidateFieldName otherItemName}}.Any(x => !x.IsValid(deep)))) return false;
+{{/inline}}
+
+{{#* inline "relationBody"}}
+{{#if isOneToOne}}
+{{#if shouldRenderField}}
+private static OneToOneAssociation<I{{className sourceClassName}}, I{{className targetClassName}}> {{associationFieldName name}} 
+    = OneToOneAssociation<I{{className sourceClassName}}, I{{className targetClassName}}>.Instance();
+{{/if}}
+{{> oneSideRelationSetUnset}}
+public I{{className otherClassName}} {{> relationGet}}() => {{associationFieldName name}}.Get{{#if isSource}}Right{{else}}Left{{/if}}(this);
+{{else if isOneToMany}}
+{{#if shouldRenderField}}
+private static OneToManyAssociation<I{{className sourceClassName}}, I{{className targetClassName}}> {{associationFieldName name}} 
+    = OneToManyAssociation<I{{className sourceClassName}}, I{{className targetClassName}}>.Instance({{#if allowDuplicates}}true{{/if}});
+{{/if}}
+{{#if isSource}}
+{{> manySideRelationSetUnset}}
+public IEnumerable<I{{className otherClassName}}> {{> relationGetMany}}() => {{associationFieldName name}}.GetMany(this);
+{{else}}
+{{> oneSideRelationSetUnset isManySide=true}}
+public I{{className otherClassName}} {{> relationGet}}() => {{associationFieldName name}}.GetOne(this);
+{{/if}}
+{{else}}
+{{#if shouldRenderField}}
+private static ManyToManyAssociation<I{{className sourceClassName}}, I{{className targetClassName}}> {{associationFieldName name}} 
+    = ManyToManyAssociation<I{{className sourceClassName}}, I{{className targetClassName}}>.Instance({{#if allowDuplicates}}true{{/if}});
+{{/if}}
+{{> manySideRelationSetUnset}}
+public IEnumerable<I{{className otherClassName}}> {{> relationGetMany}}() => {{associationFieldName name}}.Get{{#if isSource}}Ns{{else}}Ms{{/if}}(this);
+{{/if}}
+{{/inline}}
+
+{{!-- /inline partials --}}
+    public interface I{{className name}}{{#if interfaceExtends}} : {{#each interfaceExtends}}I{{className this}}{{#unless @last}}, {{/unless}}{{/each}}{{/if}}
+    {
+        {{#each props}}
+        {{> typeSignature}} {{propertyName name}} { get; set; }
+        {{/each}}
+
+        {{#each methods}}
+        {{> methodSignature}};
+        {{/each}}
+
+        {{#each relations}}
+        {{#if isOneToOne}}
+        {{> oneSideRelationInterface}}
+        {{else if isOneToMany}}
+        {{#if isSource}}
+        {{> manySideRelationInterface}}
+        {{else}}
+        {{> oneSideRelationInterface}}
+        {{/if}}
+        {{else}}
+        {{> manySideRelationInterface}}
+        {{/if}}
+        {{/each}}
+        
+        {{#each derivedRelations}}
+        {{#if isManyResults}}
+        IEnumerable<I{{className otherClassName}}> {{> relationGetMany}}();
+        {{else}}
+        I{{className otherClassName}} {{> relationGet}}();
+        {{/if}}
+        {{/each}}
+    }
+    {{#unless isInterface}}
+    public class {{className name}}{{#if classExtends}} : {{#each classExtends}}{{#if @first}}{{#unless ../superClass}}I{{/unless}}{{else}}I{{/if}}{{className this}}{{#unless @last}}, {{/unless}}{{/each}}{{/if}}
+    {
+        public {{className name}}({{#with ctor}}{{> ctorParameterList}}){{#if parentParameterNames}}: base({{#each parentParameterNames}}{{parameterName this}}{{#unless @last}}, {{/unless}}{{/each}}){{/if}}{{/with}}
+        {
+            {{#with ctor}}
+                {{#each parameters}}
+            if ({{parameterName name}} == null) throw new ArgumentNullException(nameof({{parameterName name}}));
+                {{/each}}
+            {{/with}}
+            {{#each unionClasses}}
+            {{fieldName name}} = new {{className name}}({{#each ctor.parameters}}{{parameterName name}}{{#unless @last}}, {{/unless}}{{/each}});
+            {{/each}}
+            {{#with ctor}}
+                {{#each relations}}
+            {{associationFieldName relation.name}}.CreateLink(this, {{parameterName parameterName}});
+                {{/each}}
+            {{/with}}
+        }
+
+        {{#each relations}}
+        {{> relationBody}}
+        {{/each}}
+
+        {{#each derivedRelations}}
+        {{#if isManyResults}}
+        public IEnumerable<I{{className otherClassName}}> {{> relationGetMany}}() =>
+            {{#if isManyRelators}}Get{{pluralClassName relatorName}}()
+                {{#if isManyOthers}}.SelectMany(r => r.Get{{pluralClassName relatorOtherItemName}}()).Distinct();
+                {{else}}.Select(r => r.Get{{className relatorOtherItemName}}()).Distinct();{{/if}}
+            {{else}}Get{{className relatorName}}()?.Get{{pluralClassName relatorOtherItemName}}().Distinct();{{/if}}
+        {{else}}
+        public I{{className otherClassName}} {{> relationGet}}() => Get{{className relatorName}}()?.Get{{className relatorOtherItemName}}();
+        {{/if}}
+        {{/each}}
+
+        {{#each unionClasses}}
+        private readonly I{{className name}} {{fieldName name}};
+        {{/each}}
+
+        {{#if isOverlapping}}
+        {{#each superClass.props}}
+        {{> propertyBackingField}}
+        public override {{> typeSignature}} {{propertyName name}}
+        {
+            get { return {{fieldName name}}; }
+            set 
+            {
+                {{> collectionSetterConstraints}}
+                {{fieldName name}} = value;
+                {{#each ../unionClasses}}
+                {{fieldName name}}.{{propertyName ../name}} = value;
+                {{/each}}
+            }
+        }
+        {{/each}}
+        {{#each superClass.methods}}
+        public override {{> methodSignature}}
+        {
+            {{#each ../unionClasses}}
+            {{fieldName name}}.{{methodName ../name}}({{#each ../parameters}}{{parameterName name}}{{#unless @last}}, {{/unless}}{{/each}});
+            {{/each}}
+            {{#if typeInfo}}return {{/if}}{{methodName name}}({{#each parameters}}{{parameterName name}}{{#unless @last}}, {{/unless}}{{/each}});
+        }
+        {{/each}}
+        {{/if}}
+
+        {{#each unionClasses}}
+        {{> unionClassesPropDelegation outter=name}}
+        {{/each}}
+
+        {{#each unionClasses}}
+        {{> unionClassesMethodCalls outter=name}}
+        {{/each}}
+
+        {{#each unionClasses}}
+        {{> unionClassesRelationDelegation outter=name}}
+        {{/each}}
+
+        {{#each unionClasses}}
+        {{> unionClassesDerivedRelationDelegation outter=name}}
+        {{/each}}
+
+        {{#each props}}
+        {{> propertyDeclaration}}
+        {{/each}}
+
+        {{#each methods}}
+        {{> methodDeclaration}}
+        {{/each}}
+
+        {{#each implementing}}
+        {{#each props}}
+        {{> propertyDeclaration}}
+        {{/each}}
+        {{#each methods}}
+        {{> methodDeclaration}}
+        {{/each}}
+        {{#each relations}}
+        {{> relationBody}}
+        {{/each}}
+        {{/each}}
+
+        private bool isInvalidated = false;
+        public {{#if superClass}}override{{else}}virtual{{/if}} void Invalidate()
+        {
+            isInvalidated = true;
+            {{#each relations}}
+            {{#if isOneToOne}}
+            {{#if shouldInvalidateOnRemove}}
+            {{> relationUnset}}();
+            {{/if}}
+            {{else if isOneToMany}}
+            {{#if shouldInvalidateOnRemove}}
+            {{#if isSource}}
+            foreach (var item in {{> relationGetMany}}())
+            {
+                {{> relationRemove}}(item);
+            }
+            {{else}}
+            {{> relationUnset}}();
+            {{/if}}
+            {{/if}}
+            {{else}}
+            {{#if shouldInvalidateOnRemove}}
+            foreach (var item in {{> relationGetMany}}())
+            {
+                {{> relationRemove}}(item);
+            }
+            {{/if}}
+            {{/if}}
+            {{/each}}
+        }
+
+        public {{#if superClass}}override{{else}}virtual{{/if}} bool IsValid(bool deep)
+        {
+            if (isInvalidated) return false;
+
+            {{#each unionClasses}}
+            if ({{fieldName name}} == null || !{{fieldName name}}.IsValid(deep)) return false;
+            {{/each}}
+
+            {{#each relations}}
+            {{#if isOneToOne}}
+            {{> isValidOneEnd}}
+            {{else if isOneToMany}}
+            {{#if isSource}}
+            {{> isValidManyEnd}}
+            {{else}}
+            {{> isValidOneEnd}}
+            {{/if}}
+            {{else}}
+            {{> isValidManyEnd}}
+            {{/if}}
+            {{/each}}
+
+            {{#each props}}
+            {{#if minItems}}
+            {{#if isCollection}}
+            const int {{minItemsConstantName name}} = {{minItems}};
+            {{/if}}
+            if ({{propertyName name}} == null{{#if isCollection}} || {{propertyName name}}.Count() < {{minItemsConstantName name}}{{/if}}) return false;
+            {{/if}}
+            {{/each}}
+            return true;
+        }
+    }
+    {{/unless}}

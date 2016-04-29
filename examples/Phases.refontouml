@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ASCII"?>
+<RefOntoUML:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:RefOntoUML="http://nemo.inf.ufes.br/ontouml/refontouml" xmi:id="_6F1h8Ao0EeauxPEJRowRfw" name="Model">
+  <packagedElement xsi:type="RefOntoUML:Kind" xmi:id="_8imfUAo0EeauxPEJRowRfw" name="Lamp" visibility="public"/>
+  <packagedElement xsi:type="RefOntoUML:Phase" xmi:id="_9O0sIAo0EeauxPEJRowRfw" name="LampOn" visibility="public">
+    <generalization xmi:id="_DcZosAo1EeauxPEJRowRfw" general="_8imfUAo0EeauxPEJRowRfw" generalizationSet="_EYYIwAo1EeauxPEJRowRfw"/>
+    <ownedAttribute xmi:id="_DCn2wQo1EeauxPEJRowRfw" name="brightness" type="_DCn2wAo1EeauxPEJRowRfw">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_DCn2wgo1EeauxPEJRowRfw" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_DCn2wwo1EeauxPEJRowRfw" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:Phase" xmi:id="__iVm4Ao0EeauxPEJRowRfw" name="LampOff" visibility="public">
+    <generalization xmi:id="_D5-8kAo1EeauxPEJRowRfw" general="_8imfUAo0EeauxPEJRowRfw" generalizationSet="_EYYIwAo1EeauxPEJRowRfw"/>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:PrimitiveType" xmi:id="_DCn2wAo1EeauxPEJRowRfw" name="int"/>
+  <packagedElement xsi:type="RefOntoUML:GeneralizationSet" xmi:id="_EYYIwAo1EeauxPEJRowRfw" name="lampPhase" visibility="public" isCovering="true" isDisjoint="true" generalization="_D5-8kAo1EeauxPEJRowRfw _DcZosAo1EeauxPEJRowRfw"/>
+</RefOntoUML:Model>

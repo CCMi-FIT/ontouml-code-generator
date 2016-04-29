@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<RefOntoUML:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:RefOntoUML="http://nemo.inf.ufes.br/ontouml/refontouml" xmi:id="_9cwLsQfJEeamoaCQ4YhUUA" name="Model">
+  <packagedElement xsi:type="RefOntoUML:Kind" xmi:id="__SrLgAfJEeamoaCQ4YhUUA" name="Kind1" visibility="public">
+    <ownedAttribute xmi:id="_CY9nAAfKEeamoaCQ4YhUUA" name="attr" type="_CY8_8AfKEeamoaCQ4YhUUA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_CY9nAQfKEeamoaCQ4YhUUA" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_CY9nAgfKEeamoaCQ4YhUUA" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:PrimitiveType" xmi:id="_CY8_8AfKEeamoaCQ4YhUUA" name="string"/>
+  <packagedElement xsi:type="RefOntoUML:SubKind" xmi:id="_C_UcYAfKEeamoaCQ4YhUUA" name="SubKind1" visibility="public">
+    <generalization xmi:id="_D3UbYAfKEeamoaCQ4YhUUA" general="__SrLgAfJEeamoaCQ4YhUUA" generalizationSet="_FgTycAfKEeamoaCQ4YhUUA"/>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:SubKind" xmi:id="_DcNMsAfKEeamoaCQ4YhUUA" name="SubKind2" visibility="public">
+    <generalization xmi:id="_Esd6sAfKEeamoaCQ4YhUUA" general="__SrLgAfJEeamoaCQ4YhUUA" generalizationSet="_FgTycAfKEeamoaCQ4YhUUA"/>
+  </packagedElement>
+  <packagedElement xsi:type="RefOntoUML:GeneralizationSet" xmi:id="_FgTycAfKEeamoaCQ4YhUUA" name="subkinds" visibility="public" isDisjoint="true" generalization="_D3UbYAfKEeamoaCQ4YhUUA _Esd6sAfKEeamoaCQ4YhUUA"/>
+  <packagedElement xsi:type="RefOntoUML:Kind" xmi:id="_IkHhsAfKEeamoaCQ4YhUUA" name="Kind2" visibility="public"/>
+  <packagedElement xsi:type="RefOntoUML:Association" xmi:id="_M4uxgAfKEeamoaCQ4YhUUA" name="association" visibility="public" memberEnd="_M4uxgQfKEeamoaCQ4YhUUA _M4uxhAfKEeamoaCQ4YhUUA">
+    <ownedEnd xmi:id="_M4uxgQfKEeamoaCQ4YhUUA" name="kind2" type="_IkHhsAfKEeamoaCQ4YhUUA" association="_M4uxgAfKEeamoaCQ4YhUUA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_bFkOMQfLEeamoaCQ4YhUUA" value="-1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_bFkOMAfLEeamoaCQ4YhUUA" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_M4uxhAfKEeamoaCQ4YhUUA" name="kind1" type="__SrLgAfJEeamoaCQ4YhUUA" association="_M4uxgAfKEeamoaCQ4YhUUA">
+      <upperValue xsi:type="RefOntoUML:LiteralUnlimitedNatural" xmi:id="_bFkOMwfLEeamoaCQ4YhUUA" value="1"/>
+      <lowerValue xsi:type="RefOntoUML:LiteralInteger" xmi:id="_bFkOMgfLEeamoaCQ4YhUUA" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+</RefOntoUML:Model>

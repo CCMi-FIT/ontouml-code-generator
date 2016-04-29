@@ -1,0 +1,17 @@
+{
+  "name": "generator",
+  "version": false,
+  "ambientDependencies": {
+    "chai": "registry:dt/chai#3.4.0+20160317120654",
+    "chai-as-promised": "registry:dt/chai-as-promised#0.0.0+20160317120654",
+    "handlebars": "github:DefinitelyTyped/DefinitelyTyped/handlebars/handlebars.d.ts#95b7178e0ef33b4b88327676418b4cc3ad61df0f",
+    "lodash": "github:DefinitelyTyped/DefinitelyTyped/lodash/lodash.d.ts#bda9391b4987bbf91a713ccaf586c108106ced1f",
+    "mkdirp": "registry:dt/mkdirp#0.3.0+20160317120654",
+    "mocha": "registry:dt/mocha#2.2.5+20160317120654",
+    "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#d9af4826015219a8cb7d5d464306715853470af9",
+    "promises-a-plus": "registry:dt/promises-a-plus#0.0.0+20160317120654",
+    "q": "registry:dt/q#0.0.0+20160417152954",
+    "tv4": "github:DefinitelyTyped/DefinitelyTyped/tv4/tv4.d.ts#d9af4826015219a8cb7d5d464306715853470af9",
+    "xml2js": "github:DefinitelyTyped/DefinitelyTyped/xml2js/xml2js.d.ts#193bbd4d668520b3c20a7972b211e9a082e8db8b"
+  }
+}
