@@ -1,4 +1,4 @@
-﻿# How to use
+# How to use
 
 Each example in this folder consists of two files
   * oled file with the model that can be editted using [OLED](https://github.com/nemo-ufes/ontouml-lightweight-editor)
@@ -7,7 +7,7 @@ Each example in this folder consists of two files
 npm start -- examples/item.refontouml -o path/to/output/folder
 ``` 
   
-#Files description
+## Files description
  
   * CaseStudy and CaseStudy2 - these illustrate the handling of many OntoUML constructs at the same time
   * OverlappingInheritance - handling of multi-level overlapping inheritance
